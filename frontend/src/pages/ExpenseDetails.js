@@ -1,6 +1,15 @@
 import React from "react";
 
-function ExpenseDetails({ incomeAmt, expenseAmt }) {
+function ExpenseDetails({ transactions }) {
+  // calculate income and expenses
+  const incomeAmt = transactions
+    .filter((t) => t.type === "income")
+    .reduce((acc, t) => acc + (Number(t.amount) || 0), 0);
+
+  const expenseAmt = transactions
+    .filter((t) => t.type === "expense")
+    .reduce((acc, t) => acc + (Number(t.amount) || 0), 0);
+
   const balance = incomeAmt - expenseAmt;
 
   return (

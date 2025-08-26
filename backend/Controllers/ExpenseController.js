@@ -11,7 +11,7 @@ const addTransaction = async (req, res) => {
         )
         res.status(200)
             .json({
-                message: "Expense added successfully",
+                message: `${type.charAt(0).toUpperCase() + type.slice(1)} added successfully`,
                 success: true,
                 data: userData?.expenses
             })

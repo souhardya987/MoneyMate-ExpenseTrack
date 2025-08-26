@@ -1,25 +1,44 @@
-import React, { useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useEffect } from "react";
+import { APIUrl } from "./utils";
+import { useNavigate } from "react-router-dom";
 
 function RefrshHandler({ setIsAuthenticated }) {
-    const location = useLocation();
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            setIsAuthenticated(true);
-            if (location.pathname === '/' ||
-                location.pathname === '/login' ||
-                location.pathname === '/signup'
-            ) {
-                navigate('/home', { replace: false });
-            }
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          setIsAuthenticated(false);
+          navigate("/login");
+          return;
         }
-    }, [location, navigate, setIsAuthenticated])
 
-    return (
-        null
-    )
+        const response = await fetch(`${APIUrl}/auth/verify`, {
+          headers: {
+            Authorization: token,
+          },
+        });
+
+        if (response.status === 200) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+          localStorage.removeItem("token");
+          navigate("/login");
+        }
+      } catch (err) {
+        setIsAuthenticated(false);
+        localStorage.removeItem("token");
+        navigate("/login");
+      }
+    };
+
+    checkAuth();
+  }, [navigate, setIsAuthenticated]);
+
+  return null;
 }
 
-export default RefrshHandler
+export default RefrshHandler;

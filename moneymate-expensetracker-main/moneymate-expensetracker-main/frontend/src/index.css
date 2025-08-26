@@ -1,0 +1,161 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+label {
+  font-size: 20px;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f9fc;
+}
+
+.container {
+  background-color: #FFF;
+  padding: 32px 48px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.15);
+}
+
+.container > h1 {
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container > form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.container input {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.container input::placeholder {
+  font-size: 12px;
+  font-style: italic;
+}
+
+button {
+  background-color: #4a90e2;
+  border: none;
+  font-size: 15px;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+  background-color: #357ABD;
+}
+
+.user-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expense-list {
+  font-family: 'Poppins', sans-serif;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.expense-description {
+  font-weight: bold;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px 7px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.amounts-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+}
+
+.income-amount {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.expense-amount {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 12px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.header .logout-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header .logout-btn:hover {
+  background-color: #e63946;
+}
